@@ -4,9 +4,12 @@ import { CiMenuBurger } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
 import { MdShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const NavbarLayout = () => {
 	const [isOpen, setisOpen] = useState(false);
+	const totalItem = useSelector((state) => state.cartSlice.cartItems.length);
+
 	const links = [
 		{ name: 'Home', path: '/' },
 		{ name: 'About', path: '/about' },
@@ -24,7 +27,7 @@ const NavbarLayout = () => {
 								<MdShoppingCart className='text-4xl text-orange-400 cursor-pointer' />
 							</Link>
 							<span className='absolute top-[-8px] right-[-17px] bg-red-400 text-white rounded-full px-[2px] h-6 w-6 flex justify-center items-center'>
-								0
+								{totalItem}
 							</span>
 						</h1>
 
