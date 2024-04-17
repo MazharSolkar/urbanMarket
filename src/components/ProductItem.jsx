@@ -28,7 +28,7 @@ const ProductItem = ({ id, name, image, price, company }) => {
 						</div>
 
 						<button
-							className='add-to-cart self-center w-1/2 bg-orange-500 text-white px-2 my-2 rounded-lg'
+							className='add-to-cart self-center w-1/2 bg-orange-500 text-white px-2 my-2 rounded-lg hover:bg-white hover:text-orange-500 hover border border-orange-500'
 							onClick={(event) => {
 								handleAddToCart(event);
 							}}>
