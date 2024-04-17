@@ -41,4 +41,17 @@ const ProductItem = ({ id, name, image, price, company }) => {
 	);
 };
 
+export const FeaturedProductItem = (WrappedComponent) => {
+	return (props) => {
+		return (
+			<div className='relative'>
+				<WrappedComponent {...props} />
+				<button className='featured-btn text-white bg-black p-1 rounded-lg absolute top-0 right-0'>
+					promoted
+				</button>
+			</div>
+		);
+	};
+};
+
 export default ProductItem;
