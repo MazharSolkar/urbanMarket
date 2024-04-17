@@ -25,11 +25,11 @@ const NavbarLayout = () => {
 						<h1 className='text-2xl font-bold flex justify-center items-center gap-2 relative'>
 							Urban Market
 							<Link to='/cart'>
-								<MdShoppingCart className='text-4xl text-orange-400 cursor-pointer' />
+								<MdShoppingCart className='text-4xl text-orange-500 cursor-pointer' />
 							</Link>
-							<span className='absolute top-[-8px] right-[-17px] bg-red-400 text-white rounded-full px-[2px] h-6 w-6 flex justify-center items-center'>
+							<p className=' absolute top-[-8px] right-[-17px] bg-black text-lg text-white rounded-full px-[2px] h-6 w-6 flex justify-center items-center'>
 								{totalItem}
-							</span>
+							</p>
 						</h1>
 
 						<div
