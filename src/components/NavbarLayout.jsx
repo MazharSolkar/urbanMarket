@@ -5,6 +5,7 @@ import { IoClose } from 'react-icons/io5';
 import { MdShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Footer from './Footer';
 
 const NavbarLayout = () => {
 	const [isOpen, setisOpen] = useState(false);
@@ -57,6 +58,7 @@ const NavbarLayout = () => {
 
 			<section className='app-container mt-24 mx-auto w-[97vw] max-w-screen-xl text-gray-800'>
 				<Outlet />
+				<Footer />
 			</section>
 		</>
 	);
