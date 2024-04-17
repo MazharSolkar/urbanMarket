@@ -78,7 +78,7 @@
 // Home.jsx
 import React, { useEffect, useState } from 'react';
 import useFetch from '../hooks/useFetch';
-import { PRODUCTS_URL } from '../utils/utils';
+import { PRODUCTS_URL } from '../utils/utils.mjs';
 import SearchSection from '../components/SearchSection';
 import ProductItem from '../components/ProductItem';
 

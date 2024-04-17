@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-import { SINGLE_PRODUCTS_URL } from '../utils/utils';
+import { SINGLE_PRODUCTS_URL } from '../utils/utils.mjs';
 import { useDispatch } from 'react-redux';
 import { add } from '../features/cart/cartSlice';
 

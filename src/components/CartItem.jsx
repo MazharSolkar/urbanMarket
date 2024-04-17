@@ -2,6 +2,7 @@ import React from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { decrease, increase, remove } from '../features/cart/cartSlice';
+import { centToRs } from '../utils/utils.mjs';
 
 const CartItem = ({ id, name, company, price, img, count }) => {
 	const dispatch = useDispatch();
@@ -22,8 +23,8 @@ const CartItem = ({ id, name, company, price, img, count }) => {
 						{name} ({company})
 					</h1>
 					<p>
-						<span className='font-medium'>₹ {price * count}</span> ({price} X{' '}
-						{count})
+						<span className='font-medium'>{centToRs(price * count)}</span> (
+						{centToRs(price)} X {count})
 					</p>
 					<div className='flex justify-between items-center'>
 						<div className='btn-container flex gap-2 my-2'>
