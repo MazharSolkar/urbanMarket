@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { centToRs } from '../utils/utils.mjs';
+import { toast } from 'react-toastify';
 
 const OrderSummary = () => {
 	const cartItems = useSelector((state) => state.cartSlice.cartItems);
@@ -50,7 +51,9 @@ const OrderSummary = () => {
 					{centToRs(uiTotalAmount)}
 				</p>
 			</div>
-			<button className='bg-orange-500 text-xl text-white rounded-lg py-2 px-2 w-full mt-4'>
+			<button
+				className='bg-orange-500 text-xl text-white rounded-lg py-2 px-2 w-full mt-4'
+				onClick={() => toast('order is placed')}>
 				Place Order
 			</button>
 		</div>
