@@ -1,4 +1,7 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './App.css';
 import {
 	createBrowserRouter,
@@ -25,7 +28,12 @@ const App = () => {
 			</Route>
 		)
 	);
-	return <RouterProvider router={router} />;
+	return (
+		<>
+			<RouterProvider router={router} />
+			<ToastContainer />
+		</>
+	);
 };
 
 export default App;

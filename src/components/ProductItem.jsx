@@ -1,15 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { centToRs } from '../utils/utils.mjs';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { add } from '../features/cart/cartSlice';
+import { toast } from 'react-toastify';
 
 const ProductItem = ({ id, name, image, price, company }) => {
 	const dispatch = useDispatch();
+	const cartItems = useSelector((state) => state.cartSlice.cartItems);
+	console.log(cartItems);
 
 	const handleAddToCart = (event) => {
 		event.preventDefault();
-		dispatch(add({ id, name, image, price, company, count: 1 }));
+		const inBasket = cartItems.find((cartItem) => cartItem.id === id);
+		inBasket
+			? toast('Item is already in the cart')
+			: dispatch(
+					add({ id, name, image, price, company, count: 1 }),
+					toast.success('item is added to cart')
+			  );
 	};
 
 	return (
