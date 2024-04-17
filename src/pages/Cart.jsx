@@ -29,7 +29,7 @@ const Cart = () => {
 								name={cartItem.name}
 								company={cartItem.company}
 								price={cartItem.price}
-								img={cartItem.img}
+								img={cartItem.image}
 								count={cartItem.count}
 							/>
 						))
