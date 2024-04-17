@@ -58,7 +58,9 @@ const NavbarLayout = () => {
 
 			<section className='app-container mt-24 mx-auto w-[97vw] max-w-screen-xl text-gray-800'>
 				<Outlet />
-				<Footer />
+				<div className='relative top-[10vh]'>
+					<Footer />
+				</div>
 			</section>
 		</>
 	);

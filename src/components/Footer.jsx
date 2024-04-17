@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
 	return (
-		<footer className='mt-16 flex flex-col justify-center items-center text-gray-800 border-t-2 border-gray-200 py-2'>
+		<footer className='mt-16 flex flex-col justify-end items-center text-gray-800 border-t-2 border-gray-200 py-2'>
 			<p className='text-2xl font-semibold'>
 				Made with love <span style={{ color: 'red' }}>&#10084;</span> By Mazhar
 				Solkar

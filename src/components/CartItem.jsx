@@ -8,7 +8,7 @@ const CartItem = ({ id, name, company, price, img, count }) => {
 	const dispatch = useDispatch();
 	return (
 		<>
-			<article className='cart-item flex gap-8 w-[500px] p-2 rounded-lg border shadow-lg'>
+			<article className='cart-item flex gap-8 w-[500px] p-2 rounded-lg border shadow-lg mb-4'>
 				{/* image */}
 				<div className='img-container h-40 w-72 '>
 					<img
