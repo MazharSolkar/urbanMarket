@@ -11,6 +11,12 @@ const initialState = {
 const getCartFromLocalStorage = () => {
 	return JSON.parse(localStorage.getItem('cart')) || initialState;
 };
+const calculatePrice = (cartItems) => {
+	return cartItems.reduce(
+		(acc, cartItem) => acc + cartItem.price * cartItem.count,
+		0
+	);
+};
 
 const cartSlice = createSlice({
 	name: 'cartSlice',
@@ -21,7 +27,13 @@ const cartSlice = createSlice({
 			const inBasket = state.cartItems.find(
 				(item) => item.id === action.payload.id
 			);
-			inBasket ? (inBasket.count += 1) : state.cartItems.push(action.payload);
+			if (inBasket) {
+				inBasket.count += 1;
+			} else {
+				state.cartItems.push(action.payload);
+
+				cartSlice.caseReducers.calculatePrice(state);
+			}
 
 			localStorage.setItem('cart', JSON.stringify(state));
 		},
@@ -31,8 +43,13 @@ const cartSlice = createSlice({
 				(item) => item.id === action.payload
 			);
 
-			inBasket && (inBasket.count += 1);
-			localStorage.setItem('cart', JSON.stringify(state));
+			if (inBasket) {
+				inBasket.count += 1;
+				localStorage.setItem('cart', JSON.stringify(state));
+				cartSlice.caseReducers.calculatePrice(state);
+			} else {
+				return;
+			}
 		},
 		decrease: (state, action) => {
 			// console.log(action.payload);
@@ -40,8 +57,14 @@ const cartSlice = createSlice({
 				(item) => item.id === action.payload
 			);
 
-			inBasket.count > 1 && (inBasket.count -= 1);
-			localStorage.setItem('cart', JSON.stringify(state));
+			if (inBasket.count > 1) {
+				inBasket.count -= 1;
+
+				cartSlice.caseReducers.calculatePrice(state);
+				localStorage.setItem('cart', JSON.stringify(state));
+			} else {
+				return;
+			}
 		},
 		remove: (state, action) => {
 			console.log(action.payload);
@@ -50,9 +73,16 @@ const cartSlice = createSlice({
 			);
 
 			state.cartItems.splice(itemIndex, 1);
+
+			cartSlice.caseReducers.calculatePrice(state);
 			localStorage.setItem('cart', JSON.stringify(state));
 		},
-		clear: (state, action) => {},
+		calculatePrice: (state) => {
+			state.price = state.cartItems.reduce(
+				(acc, cartItem) => acc + cartItem.price * cartItem.count,
+				0
+			);
+		},
 	},
 });
 

@@ -7,27 +7,29 @@ const CartItem = ({ id, name, company, price, img, count }) => {
 	const dispatch = useDispatch();
 	return (
 		<>
-			<article className='cart-item flex gap-8 border-2 w-[500px]'>
+			<article className='cart-item flex gap-8 w-[500px] p-2 rounded-lg border shadow-lg'>
 				{/* image */}
-				<img
-					className='h-40 w-52 object-cover rounded-lg'
-					src={img}
-					alt='cartItem_image'
-				/>
+				<div className='img-container h-40 w-72 '>
+					<img
+						className='w-full h-full object-cover rounded-lg'
+						src={img}
+						alt='cartItem_image'
+					/>
+				</div>
 				{/* item details container */}
 				<div className='item-details text-lg w-full'>
 					<h1 className='font-semibold text-xl'>
 						{name} ({company})
 					</h1>
 					<p>
-						<span className='font-medium'>$ {price * count}</span> ({price} X{' '}
+						<span className='font-medium'>₹ {price * count}</span> ({price} X{' '}
 						{count})
 					</p>
 					<div className='flex justify-between items-center'>
 						<div className='btn-container flex gap-2 my-2'>
 							<button
-								className={`decrease bg-orange-400 text-white rounded-lg p-2 ${
-									count < 2 && 'bg-orange-300'
+								className={`decrease  text-white rounded-lg p-2 ${
+									count < 2 ? 'bg-orange-300' : 'bg-orange-500'
 								}`}
 								onClick={() => {
 									dispatch(decrease(id));
@@ -36,7 +38,7 @@ const CartItem = ({ id, name, company, price, img, count }) => {
 							</button>
 							<p className='item-count font-medium'>{count}</p>
 							<button
-								className='increase bg-orange-400  text-white  rounded-lg p-2'
+								className='increase bg-orange-500  text-white  rounded-lg p-2'
 								onClick={() => {
 									dispatch(increase(id));
 								}}>
@@ -44,7 +46,7 @@ const CartItem = ({ id, name, company, price, img, count }) => {
 							</button>
 						</div>
 						<button
-							className='remove text-orange-400 border border-orange-400 hover:bg-white hover:text-orange-400 rounded-lg px-2 py-1'
+							className='remove text-orange-500 border border-orange-500 hover:bg-white hover:text-orange-500 rounded-lg px-2 py-1'
 							onClick={() => {
 								dispatch(remove(id));
 							}}>
