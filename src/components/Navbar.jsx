@@ -36,7 +36,7 @@ const Navbar = () => {
 					</div>
 				</div>
 				<ul
-					className={`w-full md:w-auto md:flex text-xl font-semibold absolute z-20 md:static ${
+					className={`bg-white w-full md:w-auto md:flex text-xl font-semibold absolute z-20 md:static ${
 						isOpen ? 'top-[40px]' : 'top-[-220px]'
 					} transition-all ease-in delay-300 `}>
 					{links.map((link) => (
