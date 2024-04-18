@@ -9,7 +9,7 @@ import {
 	RouterProvider,
 	Route,
 } from 'react-router-dom';
-import NavbarLayout from './components/NavbarLayout';
+import NavFooterLayout from './components/NavFooterLayout';
 import ErrorElement from './components/ErrorElement';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -19,7 +19,7 @@ import Cart from './pages/Cart';
 const App = () => {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
-			<Route path='/' element={<NavbarLayout />}>
+			<Route path='/' element={<NavFooterLayout />}>
 				<Route index element={<Home />} />
 				<Route path='about' element={<About />} />
 				<Route path='cart' element={<Cart />} />
