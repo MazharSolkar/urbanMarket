@@ -7,7 +7,7 @@ const NavFooterLayout = () => {
 	return (
 		<>
 			<Navbar />
-			<section className='app-container mt-24 mx-auto w-[97vw] max-w-screen-xl text-gray-800'>
+			<section className='app-container mt-24 mx-auto px-1 w-[97vw] max-w-screen-xl text-gray-800'>
 				<Outlet />
 				<div className='relative top-[10vh]'>
 					<Footer />
