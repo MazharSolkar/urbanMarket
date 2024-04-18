@@ -2,18 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	overflow: hidden; /* Hide scrollbars */
+/* width */
+::-webkit-scrollbar {
+	display: none;
 }
 
-body {
-	overflow-y: hidden; /* Hide vertical scrollbar */
-}
-
-/* BLINKING ANIMATION */
-.blinking {
-	position: relative;
-	overflow: hidden;
+/* Track */
+::-webkit-scrollbar-track {
+	display: none;
 }
 
 .blinking::before {
